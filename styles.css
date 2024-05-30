@@ -195,10 +195,6 @@ body {
 
 }
 
-.not-found{
-    display:none;
-}
-
 .weather-details span{
     display:inline-block;
     font-size: 1.5rem;
@@ -209,4 +205,32 @@ body {
     font-size: 0.8rem;
     font-weight:500;    
 }
+
+
+/*--------------------------------Error message-----------------------------------------*/
+
+.not-found{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    text-align:center;
+    margin-top:110px;
+
+}
+
+.not-found-image{
+    width: 65%;
+
+}
+.error-message{
+    font-size: 1.2rem;
+    font-weight:500;
+    margin-top:12px;
+}
+.weather-box,
+.weather-details{
+    display:none;
+}
+
 
