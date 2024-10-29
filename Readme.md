@@ -11,3 +11,11 @@ This app shows the current weather if you enter the location.
 ## API
 
 -https://openweathermap.org/
+
+## Icons:
+
+https://www.flaticon.com/
+
+## Pictures:
+
+https://unsplash.com/

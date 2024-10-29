@@ -11,35 +11,35 @@
     <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-    <section class="weather-app">
+    <section class="weather-app js-weather-app">
         <h1 class="title">Weather App</h1>
         <div class="weather-card">
             <form action="#" class="js-form search-box" >
                 <label>
                     <i class="fa-solid fa-location-dot"></i>
-                    <input type="text" placeholder="enter your location">
+                    <input type="text" name="location" placeholder="enter your location">
                 </label>
                 <button class="btn" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
             </form>
-            <div class="weather-box">
+            <div class="weather-box js-weather-box">
                 <div class="box">
                     <div class="weather-info">
                         <div class="weather">
-                            <img class="weather-picture" src="./assets/icons/clear.png" alt="weather picture">
-                            <p class="temperature">30<span>&#8451;</span></p>
-                            <p class="description">clear</p>
+                            <img class="weather-picture js-weather-picture" src="./assets/icons/clear.png" alt="weather picture">
+                            <p class="temperature js-temperature">30<span>&#8451;</span></p>
+                            <p class="description js-description">clear</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="weather-details">
+            <div class="weather-details js-weather-details">
                 <div class="humidity">
                     <i class="fa-solid fa-droplet"></i>
                     <div class="text">
                         <div class="humidity-info">
-                            <span>0%</span>
+                            <span class="js-humidity">0%</span>
                         </div>
                         <p class="humidity-text">Humidity</p>
                     </div>
@@ -48,21 +48,20 @@
                     <i class="fa-solid fa-wind"></i>
                     <div class="text">
                         <div class="wind-info">
-                            <span>0Km/h</span>
+                            <span class="js-wind">0Km/h</span>
                         </div>
                         <p class="wind-text">Wind Speed</p>
                     </div>
                 </div>
             </div>
-            <div class="not-found">
+            <div class="not-found js-not-found">
                 <div class="box">
                     <img class="not-found-image" src="./assets/icons/404.png" alt="404 error">
                     <p class="error-message">Ooops! Location not found!</p>
                 </div>
-
             </div>
         </div>
     </section>
-    
+    <script src="./weather.js"></script>
 </body>
 </html>
