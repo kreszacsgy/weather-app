@@ -8,10 +8,12 @@
 
 :root {
     --main-font: 'Poppins', sans-serif;
+    --white: 255, 255, 255;
+    --black: 0,0,0;
+    --dark-grey: #191919;
 }
 
 html {
-    scroll-behavior: smooth;
     font-size: 16px;
 }
 
@@ -22,17 +24,17 @@ body {
     font-family: var(--main-font);
     scroll-behavior: smooth;
     min-height:100vh;
-    background-color: black;
+    background-color: rgb(var(--black));
 }
 
 .weather-app{
     position:relative;
-    width:90vw;
+    width:95vw;
     max-width:800px;
     height:95vh;
     max-height:800px;
     min-height:650px;
-    background-image: url(./assets/background/clear.jpg);
+    background-image: url(./assets/background/day/clear.jpg);
     background-position: center;
     background-size: cover;
     display:flex;
@@ -53,24 +55,24 @@ body {
     max-width:400px;
     text-align: center;
     padding:8px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(var(--white), 0.5);
     backdrop-filter: blur(5px);
-    border:2px solid rgba(255,255,255,0.8);
+    border:2px solid rgba(var(--white),0.8);
     border-radius: 20px;
-    box-shadow: rgba(0,0,0,0.5) 0 7px 29px 0;
+    box-shadow: rgba(var(--black),0.5) 0 7px 29px 0;
 }
 
 .weather-card{
-    background-color: rgba(254, 254, 254, 0.5);
+    background-color: rgba(var(--white), 0.5);
     backdrop-filter: blur(5px);
-    border:2px solid rgba(255,255,255,0.8);
-    box-shadow: rgba(0,0,0,0.5) 0 7px 29px 0;
+    border:2px solid rgba(var(--white),0.8);
+    box-shadow: rgba(var(--black),0.5) 0 7px 29px 0;
     width:90%;
     max-width:400px;
     max-height:555px;
     border-radius: 20px;
     padding:20px;
-    transition: height 2s ease-in-out;
+    transition: all 2s ease-in-out;
 }
 
 /*--------------------------------Form-----------------------------------------*/
@@ -90,18 +92,18 @@ body {
     justify-content:space-between;
     height:100%;
     width:80%;
-    border:2px solid rgba(255,255,255, 0.2);
+    border:2px solid rgba(var(--white), 0.2);
     border-radius:20px;
     padding: 0 10px;
     font-size:1.2rem;
     font-weight:500;
-    background-color: white;
+    background-color:rgb(var(--white));
 }
 
 .search-box i{
     margin:0 15px 0 10px;
     font-size: 1.6rem;
-    color:black;
+    color:var(--black);
 }
 
 .search-box input{
@@ -111,35 +113,34 @@ body {
     border:none;
     font-size:1.2rem;
     font-weight:500;
-    color:#191919;
-    text-transform:uppercase;
+    color:var(--dark-grey);
+    text-transform:capitalize;
     background:transparent;
 }
 
 .search-box input::placeholder{
     text-transform:capitalize;
-    color:#191919;
+    color:var(--dark-grey);
 }
 
 .btn{
     right:0;
-    border:2px solid rgba(255,255,255, 0.2);
+    border:2px solid rgba(var(--white), 0.2);
     outline:none;
     height:100%;
     width: 50px;
     border-radius:50%;
     font-size:1.2rem;
-    background-color: white;
+    background-color:rgb(var(--white));
     cursor:pointer;
 }
-
 
 /*--------------------------------Weather-----------------------------------------*/
 
 .weather-box{
     justify-content: center;    
     text-align: center;
-    color:#191919;
+    color:var(--dark-grey);
     height: 50vh;
     visibility: hidden;
     opacity: 0;
@@ -152,8 +153,6 @@ body {
     max-width: 150px;
     padding-top:15px;
 }
-
-
 
 .temperature{
     position:relative;
@@ -203,13 +202,10 @@ body {
     margin-right:20px;
 }
 
-
 .weather-details i{
     font-size: 2.5rem;
     margin-right:20px;
 }
-
-
 
 .weather-details span{
     display:inline-block;
@@ -239,7 +235,6 @@ body {
     }
 }
 
-
 /*--------------------------------Error message-----------------------------------------*/
 
 .not-found{
@@ -261,9 +256,6 @@ body {
     margin-top:12px;
 }
 
-
-
-
 .weather-box.active,
 .weather-details.active,
 .not-found.active
@@ -271,9 +263,4 @@ body {
     visibility:visible;
     opacity:1;
     height:fit-content;
-
 }
-
-
-
-
