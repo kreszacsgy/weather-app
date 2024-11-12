@@ -10,7 +10,7 @@
     --main-font: 'Poppins', sans-serif;
     --white: 255, 255, 255;
     --black: 0,0,0;
-    --dark-grey: #191919;
+    --dark-grey: #7e7d7d;
 }
 
 html {
@@ -33,7 +33,7 @@ body {
     max-width:800px;
     height:95vh;
     max-height:800px;
-    min-height:650px;
+    min-height:620px;
     background-image: url(./assets/background/day/clear.jpg);
     background-position: center;
     background-size: cover;
@@ -101,7 +101,7 @@ body {
 }
 
 .search-box i{
-    margin:0 15px 0 10px;
+    margin:0 10px 0 10px;
     font-size: 1.6rem;
     color:var(--black);
 }
@@ -111,9 +111,9 @@ body {
     width:100%;
     outline:none;
     border:none;
-    font-size:1.2rem;
-    font-weight:500;
-    color:var(--dark-grey);
+    font-size:1.5rem;
+    font-weight:700;
+    color:var(--black);
     text-transform:capitalize;
     background:transparent;
 }
@@ -121,6 +121,8 @@ body {
 .search-box input::placeholder{
     text-transform:capitalize;
     color:var(--dark-grey);
+    font-size:1.2rem;
+    font-weight:500;
 }
 
 .btn{
@@ -140,7 +142,7 @@ body {
 .weather-box{
     justify-content: center;    
     text-align: center;
-    color:var(--dark-grey);
+    color:var(--black);
     height: 50vh;
     visibility: hidden;
     opacity: 0;
@@ -190,7 +192,7 @@ body {
     justify-content:center;
     flex-direction:column;
     width:50%;
-    padding:20px 0 10px 0;
+    padding:15px 0 10px 0;
     
 }
 

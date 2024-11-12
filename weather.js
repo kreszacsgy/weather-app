@@ -1,5 +1,5 @@
 
-const weatherCard = document.querySelector(".weather-card");
+const weatherCard = document.querySelector(".js-weather-card");
 const $form = document.querySelector(".js-form");
 const $searchInput = document.querySelector("[name=location");
 const weatherBackground = document.querySelector(".js-weather-app");
