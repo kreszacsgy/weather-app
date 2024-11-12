@@ -27,7 +27,6 @@ https://kreszacsgy.github.io/weather-app/
         - css validation
         - css reset
         - variables
-        - @key-frames
         - @media-queries
         - flex    
     3. Javascript
