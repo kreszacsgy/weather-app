@@ -23,15 +23,28 @@ function getAPIUrl(city) {
 //eror message if the city not found 
 
 function notFound() {
+    weatherCard.classList.add("expanded");
+    errorBox.classList.add("active");
+}
+
+//reset the animation
+
+function resetAnimations() {
     weatherBox.classList.remove("active");
     detailsBox.classList.remove("active");
-    errorBox.classList.add("active");
+    errorBox.classList.remove("active");
+    weatherCard.classList.remove("expanded");
+    weatherBackground.style.opacity= "0"; 
+    void weatherCard.offsetWidth;
 }
 
 //check the weather informations
 
 async function checkWeather(city){  
     try{const response = await fetch(getAPIUrl(city)); 
+        if (!response.ok) {
+            throw new Error("City not found");
+        }
         const weatherData =  await response.json();           
         temperature.innerHTML= `${parseInt(weatherData.main.temp)}<span>&#8451;</span>`;
         description.innerHTML= `${weatherData.weather[0].description}`;
@@ -52,38 +65,24 @@ async function checkWeather(city){
 
         //change the background and the icon
 
-        if(weatherData.weather[0].main == "Clear") {
-            weatherImage.src= `assets/icons/${timeOfDay}/clear.png`;
-            weatherBackground.style.backgroundImage = `url(./assets/background/${timeOfDay}/clear.jpg)`;
-        }
-        else if(weatherData.weather[0].main == "Rain") {
-            weatherImage.src= `assets/icons/${timeOfDay}/rain.png`;
-            weatherBackground.style.backgroundImage = `url(./assets/background/${timeOfDay}/rain.jpg)`;
-        }
-        else if(weatherData.weather[0].main == "Snow") {
-         weatherImage.src= `assets/icons/${timeOfDay}/snow.png`;
-            weatherBackground.style.backgroundImage = `url(./assets/background/${timeOfDay}/snow.jpg)`;
-        }
-        else if(weatherData.weather[0].main == "Clouds") { 
-            weatherImage.src= `assets/icons/${timeOfDay}/clouds.png`;
-            weatherBackground.style.backgroundImage = `url(./assets/background/${timeOfDay}/cloud.jpg)`;
-        }
-        else if(weatherData.weather[0].main == "Mist") {
-            weatherImage.src= `assets/icons/${timeOfDay}/mist.png`;
-            weatherBackground.style.backgroundImage = `url(./assets/background/${timeOfDay}/mist.jpg)`;
-        }
-        else if(weatherData.weather[0].main == "Haze") {
-            weatherImage.src= `assets/icons/${timeOfDay}/mist.png`;
-            weatherBackground.style.backgroundImage = `url(./assets/background/${timeOfDay}/mist.jpg)`;
-        };
+        const weatherType = weatherData.weather[0].main.toLowerCase();
+        const validTypes = ["clear", "rain", "snow", "clouds", "mist"];
+        const type = validTypes.includes(weatherType) ? weatherType : "mist";
+
+        weatherImage.src = `assets/icons/${timeOfDay}/${type}.png`;
+        weatherBackground.style.backgroundImage = `url(./assets/background/${timeOfDay}/${type}.jpg)`;
+
+        // display the weather
+
+        weatherCard.classList.add("expanded");
         weatherBox.classList.add("active");
-        detailsBox.classList.add("active");
-        errorBox.classList.remove("active");  
+        detailsBox.classList.add("active");          
     } catch(err) {
+        resetAnimations();
         notFound();
+        weatherBackground.style.opacity= "1";
     } 
 }
-    
 
 // submit the form
 
@@ -91,12 +90,14 @@ function formSubmitted(event){
     event.preventDefault();
     let city = $searchInput.value.trim();
     if (city.length == 0) {
-        notFound();
+        resetAnimations();
+        weatherBackground.style.opacity= "1";
+        setTimeout(()=>{notFound()},1000);
     } else {
-        checkWeather(city);
-        weatherBackground.style.opacity= "0";
+        resetAnimations();
+        weatherBackground.style.opacity= "1";
+        setTimeout(()=>{checkWeather(city)},1000);        
     }
-    weatherBackground.style.opacity= "1";
 }
 
 $form.addEventListener("submit",formSubmitted)

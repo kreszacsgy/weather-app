@@ -43,7 +43,7 @@ body {
     border-radius:20px;
     padding:5vh 1vh;
     opacity:1;
-    transition: all 2s;  
+    transition: all 1s;  
 }
 
 
@@ -70,10 +70,11 @@ body {
     box-shadow: rgba(var(--black),0.5) 0 7px 29px 0;
     width:90%;
     max-width:400px;
-    max-height:555px;
+    height:100px;
     border-radius: 20px;
     padding:20px;
-    transition: all 2s ease-in-out;
+    transition: height 1s ease-in-out;
+    overflow:hidden;
 }
 
 /*--------------------------------Form-----------------------------------------*/
@@ -83,7 +84,6 @@ body {
     height:50px;
     display:flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 
@@ -142,14 +142,15 @@ body {
 /*--------------------------------Weather-----------------------------------------*/
 
 .weather-box{
+    position:relative;
     justify-content: center;    
     text-align: center;
     color:var(--black);
-    height: 50vh;
-    visibility: hidden;
+    padding-bottom:20px;
     opacity: 0;
-    height:0;
-    transition: visibility 0s,opacity 4s linear;
+    visibility:hidden;
+    transition: opacity 1s ease, visibility 0s;    
+    transition-delay: 1s;
 }
 
 .weather-picture{
@@ -179,12 +180,13 @@ body {
 }
 
 .weather-details{
+    position:relative;
     width:100%;
     display:flex;
     opacity:0;
-    height:0;
-    visibility: hidden;
-    transition: visibility 0s,opacity 4s linear;
+    visibility:hidden;
+    transition: opacity 1s ease, visibility 0s;
+    transition-delay: 1s;
 }
 
 .humidity,
@@ -242,12 +244,15 @@ body {
 /*--------------------------------Error message-----------------------------------------*/
 
 .not-found{
+    position:absolute;
+    top:150px;
+    left:0;
     width:100%;
     text-align:center;
-    visibility: hidden;
     opacity:0;
-    height:0;
-    transition: visibility 0s,opacity 4s linear;
+    visibility:hidden;
+    transition: opacity 1s ease, visibility 0s;
+    transition-delay: 1s;
 }
 
 .not-found-image{
@@ -260,11 +265,14 @@ body {
     margin-top:12px;
 }
 
+.weather-card.expanded{
+    height:555px;
+}
+
 .weather-box.active,
 .weather-details.active,
 .not-found.active
 {
-    visibility:visible;
     opacity:1;
-    height:fit-content;
+    visibility:visible;
 }
